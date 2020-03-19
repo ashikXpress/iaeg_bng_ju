@@ -43,7 +43,7 @@
                         <a href="{{route('member.dashboard')}}" class="iq-waves-effect"><i class="ri-hospital-fill"></i><span>Dashboard</span></a>
                     </li>
                     @php
-                        $subMenu = ['member.technical.event','member.exhibition.event','member.field.event','member.event.join'];
+                        $subMenu = ['member.technical.event','member.exhibition.event','member.field.event','member.event.technical.join','member.event.exhibition.join','member.event.field.join','member.event.details'];
                     @endphp
 
                     <li class="{{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
@@ -78,6 +78,7 @@
 
                           @if(Auth::guard('member')->user()->is_member==0)
                             <span class="alert alert-info" style="font-size:14px;display: inline-block"><a style="color:#089cac" href="{{route('member.join')}}">Apply for membership & get discount for Event joining <i class="fa fa-arrow-right"></i></a></span>
+
                             @elseif(Auth::guard('member')->user()->is_member==2)
                                 <span class="alert alert-danger" style="font-size:14px;display: inline-block">Your membership payment approval is pending !! </span>
                             @endif

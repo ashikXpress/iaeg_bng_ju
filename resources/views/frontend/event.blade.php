@@ -51,7 +51,7 @@
                             <h4><a href="{{route('event.details',$event->id)}}">{{$event->name}}</a></h4>
                             <p>{{ \Illuminate\Support\Str::limit($event->description, 100, $end='...') }}</p>
                             <div class="button">
-                                <a href="{{route('event.details',$event->id)}}" class="btn">Join Event</a>
+                                <a href="{{route('event.details',$event->id)}}" class="btn">Read More</a>
                             </div>
                         </div>
                     </div>

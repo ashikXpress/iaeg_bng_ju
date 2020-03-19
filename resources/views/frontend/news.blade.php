@@ -37,21 +37,21 @@
                         @if($item->category_id==1)
                         <div class="course-head overlay">
                             <img src="{{asset($item->image_or_file)}}" alt="#">
-                            <a href="" class="btn"><i class="fa fa-link"></i></a>
+                            <a href="{{route('news.details',$item->id)}}" class="btn"><i class="fa fa-link"></i></a>
                         </div>
                         @endif
                         <div class="single-content">
-                            <h4><a href="">{{$item->title}} <span>Post by: {{$item->userName->name}}</span></a></h4>
+                            <h4><a href="{{route('news.details',$item->id)}}">{{$item->title}} <span><i class="fa fa-user"></i> Post by: {{$item->userName->name}}</span></a></h4>
 
                             <p>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }} <a
-                                    href="" class="alert-link"> read more</a></p>
+                                    href="{{route('news.details',$item->id)}}" class="alert-link"> read more</a></p>
                         </div>
                         <div class="course-meta">
                             <div class="meta-left">
                                 <span><i class="fa fa-clock-o"></i>{{date('d M Y',strtotime($item->upload_date))}}</span>
                             </div>
                             @if($item->category_id===2)
-                            <span class="price"><a href="" target="_blank" style="color: #fff">File download <i class="fa fa-cloud-download"></i></a>
+                            <span class="price"><a href="{{$item->image_or_file}}" target="_blank" style="color: #fff">File download <i class="fa fa-cloud-download"></i></a>
                         </span>
                             @endif
 

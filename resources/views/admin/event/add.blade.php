@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <div class="custom-file">
                                     <input type="file" name="image[]" class="custom-file-input" id="customFile" multiple>
-                                    <label class="custom-file-label" for="customFile">Choose Event Image</label>
+                                    <label class="custom-file-label" for="customFile">Choose Multiple Event Image</label>
                                 </div>
                             </div>
                             <div class="form-group row ml-0 mr-0">

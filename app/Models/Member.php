@@ -14,4 +14,9 @@ class Member extends Authenticatable
     public function events() {
         return $this->belongsToMany(Event::class);
     }
+
+    public function memberType()
+    {
+        return $this->hasOne(MemberType::class,'id','member_type_id');
+    }
 }

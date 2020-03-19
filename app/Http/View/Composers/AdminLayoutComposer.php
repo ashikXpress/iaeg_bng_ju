@@ -23,7 +23,7 @@ class AdminLayoutComposer
     {
 
 
-        $data['unapproved_count']= Member::where('status',0)->count();
+        $data['unapproved_count']= Member::where('is_member',2)->count();
         $view->with($data);
 
     }

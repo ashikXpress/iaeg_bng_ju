@@ -44,7 +44,19 @@ class HomeController extends Controller
     {
 
         $data['sliders']=Slider::orderBy('sort','asc')->get();
-        $data['news']=News::where('category_id',1)->get();
+        $data['news']=News::where('category_id',1)->latest()->take(6)->get();
+        $data['events']=Event::latest()->take(6)->get();
+        $data['members']=Member::where('is_member',1)->latest()->take(4)->get();
+        $data['galleries']=Gallery::latest()->take(8)->get();
+        $data['technical_event_count']=Event::where('event_category_id',1)->count();
+        $data['exhibition_event_count']=Event::where('event_category_id',2)->count();
+        $data['field_event_count']=Event::where('event_category_id',3)->count();
+
+        $data['foundry_member_count']=Member::where('is_member',1)->where('member_type_id',1)->count();
+        $data['current_member_count']=Member::where('is_member',1)->where('member_type_id',2)->count();
+        $data['student_member_count']=Member::where('is_member',1)->where('member_type_id',3)->count();
+        $data['new_member_count']=Member::where('is_member',1)->where('member_type_id',4)->count();
+        $data['non_member_count']=Member::where('is_member',0)->count();
 
 
         return view('frontend.home',$data);
@@ -61,6 +73,12 @@ class HomeController extends Controller
         $news=News::where('category_id',$id)->paginate(1);
 
         return view('frontend.news',compact('news','news_name'));
+    }
+
+    public function newsDetails($id)
+    {
+        $news=News::findOrFail($id);
+        return view('frontend.single_news',compact('news'));
     }
     public function event($id){
 

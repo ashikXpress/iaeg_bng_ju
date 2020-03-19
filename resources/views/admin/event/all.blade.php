@@ -45,7 +45,6 @@
                             <th>Session</th>
                             <th>Start to End</th>
                             <th>Event Category</th>
-                            <th>Description</th>
                             <th width="280px">Action</th>
 
                         </tr>
@@ -62,7 +61,6 @@
                                 <td>{{ $event->session }}</td>
                                 <td width="180px">{{ date('d M y, h:m A',strtotime($event->start_date)) .' to '.date('d M y, h:m A',strtotime($event->end_date))}}</td>
                                 <td>{{ $event->categoryName->name }}</td>
-                                <td>{{ $event->description }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('event.edit', $event->id) }}">Edit</a>
 

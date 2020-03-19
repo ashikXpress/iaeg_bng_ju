@@ -8,42 +8,27 @@
             <div class="iq-card">
                 <div class="iq-card-header d-flex justify-content-between">
                     <div class="iq-header-title">
-                        <h4 class="card-title">Join the Event</h4>
+                        <h4 class="card-title">Join the Technical Event</h4>
                     </div>
                 </div>
                 <div class="iq-card-body">
-                    @if (count($errors) > 0)
 
-                        <div class="alert alert-danger">
-
-
-                            <p><strong>Whoops!</strong><br> There were some problems with your input.</p>
-
-                            <ul>
-
-                                @foreach ($errors->all() as $error)
-
-                                    <li>{{ $error }}</li>
-
-                                @endforeach
-
-                            </ul>
-
-                        </div>
-
-                    @endif
-
-                    <form action="{{route('member.event.submit')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('member.event.technical.submit')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="event_id" value="{{ request()->route('id') }}">
                         <div class="form-group">
                             <input type="text" value="{{old('paper_title')}}" name="paper_title" placeholder="Enter Paper Title" class="form-control">
+                        <span class="text text-danger">{{$errors->first('paper_title')}}</span>
                         </div>
                         <div class="form-group">
                             <input type="text" value="{{old('author_affiliation')}}" name="author_affiliation" placeholder="Enter Author Affiliation" class="form-control">
+                            <span class="text text-danger">{{$errors->first('author_affiliation')}}</span>
+
                         </div>
                         <div class="form-group">
                             <input type="text" value="{{old('corresponding_email')}}" name="corresponding_email" placeholder="Enter Corresponding Email" class="form-control">
+                            <span class="text text-danger">{{$errors->first('corresponding_email')}}</span>
+
                         </div>
                         <div class="form-group" id="payment_method">
                             <select name="payment_method" class="form-control" id="payment_method_select">
@@ -52,17 +37,24 @@
                                 <option value="rocket" {{ old('payment_method') == 'rocket' ? 'selected' : '' }}>Rocket</option>
                                 <option value="bank" {{ old('payment_method') == 'bank' ? 'selected' : '' }}>Bank</option>
                             </select>
+                            <span class="text text-danger">{{$errors->first('payment_method')}}</span>
                         </div>
                         <div class="form-group">
                             <input type="text" name="amount" value="{{old('amount')}}" placeholder="Enter Amount"  class="form-control">
+                            <span class="text text-danger">{{$errors->first('amount')}}</span>
+
                         </div>
                         <div class="form-group" id="trx_id">
                             <input type="text" name="TrxID" value="{{old('TrxID')}}" placeholder="Enter TrxID"  class="form-control">
+                            <span class="text text-danger">{{$errors->first('TrxID')}}</span>
+
                         </div>
                         <div class="form-group" id="bank_cheque">
                             <div class="custom-file">
-                                <input type="file" name="bank_check" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose Bank Check Image</label>
+                                <input type="file" name="bank_cheque" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose Bank Cheque Image</label>
+                                <span class="text text-danger">{{$errors->first('bank_cheque')}}</span>
+
                             </div>
                         </div>
 
@@ -71,12 +63,16 @@
                                 <input type="file" name="abstract_doc_file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose abstract doc file</label>
                             </div>
+                            <span class="text text-danger">{{$errors->first('abstract_doc_file')}}</span>
+
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
                                 <input type="file" name="presentation_ppt_file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose presentation ppt file</label>
                             </div>
+                            <span class="text text-danger">{{$errors->first('presentation_ppt_file')}}</span>
+
                         </div>
 
                         <div class="form-group">

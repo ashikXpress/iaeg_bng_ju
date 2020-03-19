@@ -91,6 +91,13 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
     Route::get('member/approved/{id}', 'MemberController@approvedMember')->name('approved.member');
     Route::get('member/suspend/{id}', 'MemberController@memberSuspend')->name('member.suspend');
 
+    Route::get('member/payment/details/', 'MemberController@memberPaymentDetails')->name('member.payment.details');
+
+    //join event
+    Route::get('event/technical/join/unapproved', 'MemberController@evenTechnicalJoinUnapproved')->name('event.technical.join.unapproved');
+    Route::get('event/exhibition/join/unapproved', 'MemberController@evenExhibitionJoinUnapproved')->name('event.exhibition.join.unapproved');
+    Route::get('event/field/join/unapproved', 'MemberController@evenFieldJoinUnapproved')->name('event.field.join.unapproved');
+
     //Contact
 
     Route::get('contact/mail/', 'ContactController@allContactMail')->name('all.contact.mail');
@@ -117,6 +124,7 @@ Route::namespace('Frontend')->group(function () {
     Route::get('about','HomeController@about')->name('about');
 
     Route::get('news/{id}','HomeController@news')->name('news');
+    Route::get('news/details/{id}','HomeController@newsDetails')->name('news.details');
     Route::get('gallery/{id}','HomeController@gallery')->name('gallery');
     Route::get('contact','HomeController@contact')->name('contact');
     Route::post('contact','HomeController@contactMail')->name('contact.mail');
@@ -149,7 +157,19 @@ Route::namespace('Member')->middleware(['auth:member'])->prefix('member')->group
     Route::get('event/exhibition','MemberController@eventExhibition')->name('member.exhibition.event');
     Route::get('event/field','MemberController@eventField')->name('member.field.event');
 
-    Route::get('event/join/{id}','MemberController@eventJoinForm')->name('member.event.join');
-    Route::post('event/join','MemberController@eventJoinSubmit')->name('member.event.submit');
+    Route::get('event/details/{id}','MemberController@eventDetails')->name('member.event.details');
+
+    //event join technical
+
+    Route::get('event/technical/join/{id}','MemberController@eventTechnicalJoinForm')->name('member.event.technical.join');
+    Route::post('event/technical/join','MemberController@eventTechnicalJoinSubmit')->name('member.event.technical.submit');
+
+    Route::get('event/exhibition/join/{id}','MemberController@eventExhibitionJoinForm')->name('member.event.exhibition.join');
+    Route::post('event/exhibition/join','MemberController@eventExhibitionJoinSubmit')->name('member.event.exhibition.submit');
+
+    Route::get('event/field/join/{id}','MemberController@eventFieldJoinForm')->name('member.event.field.join');
+    Route::post('event/field/join','MemberController@eventFieldJoinSubmit')->name('member.event.field.submit');
+
+
 
 });

@@ -40,7 +40,7 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_date' => 'required',
             'end_time' => 'required',
-            'description' => 'required|max:500',
+            'description' => 'required',
         ]);
         $start_time = date("H:i:s", strtotime($request->start_time));
         $end_time = date("H:i:s", strtotime($request->end_time));
@@ -102,7 +102,7 @@ class EventController extends Controller
             'title' => 'required|max:191',
             'sub_title' => 'required|max:191',
             'event_category' => 'required',
-            'description' => 'required|max:500',
+            'description' => 'required',
         ]);
 
         $event = Event::find($id);

@@ -2,6 +2,7 @@
 
 @section('additionalCSS')
     <link rel="stylesheet" href="{{asset('assets/frontend/lightbox2/css/lightbox.min.css')}}">
+
 @stop
 
 @section('content')

@@ -1,8 +1,22 @@
 @extends('layouts.frontend')
 @section('additionalCSS')
+    <link rel="stylesheet" href="{{asset('assets/frontend/lightbox2/css/lightbox.min.css')}}">
+
     <style>
         .home-slider .single-slider:before {
             opacity: 0.3;
+        }
+        a.btn-about {
+            display: inline-block;
+            background: #00b16a;
+            color: #fff;
+            padding: 11px 18px;
+            border-bottom: 5px;
+            margin: 8px 0px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 17px;
+            border: 1px solid #00b16a;
         }
     </style>
 @endsection
@@ -41,8 +55,8 @@
                                 <h1>{{$slider->title}}</h1>
                                 <p>{{$slider->sub_title}}</p>
                                 <div class="button">
-                                    <a href="courses.html" class="btn primary">Our Courses</a>
-                                    <a href="about.html" class="btn">About Learnedu</a>
+                                    <a href="{{route('about')}}" class="btn primary">About Us</a>
+                                    <a href="{{route('contact')}}" class="btn">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -63,45 +77,35 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>We Provide <span>Educational</span> Solutions</h2>
-                        <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+                        <h2>About<span> Us</span></h2>
+
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <!-- Single Feature -->
                     <div class="single-feature">
                         <div class="feature-head">
                             <img src="{{asset('assets/frontend/images/feature1.jpg')}}" alt="#">
                         </div>
-                        <h2>Online Courses Facilities</h2>
-                        <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>
                     </div>
                     <!--/ End Single Feature -->
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <!-- Single Feature -->
                     <div class="single-feature">
-                        <div class="feature-head">
-                            <img src="{{asset('assets/frontend/images/feature2.jpg')}}" alt="#">
-                        </div>
                         <h2>Student Admin Panel</h2>
-                        <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>
-                    </div>
-                    <!--/ End Single Feature -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Single Feature -->
-                    <div class="single-feature">
-                        <div class="feature-head">
-                            <img src="{{asset('assets/frontend/images/feature3.jpg')}}" alt="#">
+                        <p>As marketing professionals in the experiential world, we have become accusto to the idea of an ever evolving industry. Brands today are moving away from purely face to face physical experiences, and bringing their essence to life, not only through digital immersion creativity but through new technology as well including Virtual Reality.
+
+                            face physical experiences, and bringing their essence to life, not only through digital immersion creativity but through new technology as well including Virtual Reality As marketing professionals in the experiential world, we have become accusto to the idea of an ever evolving industry. Brands today are moving away from purely face to face physical experiences,</p>
+                        <div class="button">
+                            <a href="{{route('about')}}" class="btn-about">Read More</a>
                         </div>
-                        <h2>Perfect Guidelines</h2>
-                        <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>
                     </div>
                     <!--/ End Single Feature -->
                 </div>
+
             </div>
         </div>
     </section>
@@ -117,25 +121,13 @@
                             <!-- Single Enroll -->
                             <div class="enroll-form">
                                 <div class="form-title">
-                                    <h2>Enroll Today</h2>
-                                    <p>Before you miss the chance to get your seat!</p>
+                                    <h2>Enroll Membership</h2>
+                                    <p>And get discount for events joining !!</p>
                                 </div>
                                 <!-- Form -->
                                 <form class="form" action="#">
-                                    <div class="form-group">
-                                        <label>Enter Your name</label>
-                                        <input name="name" type="text" placeholder="John Mathew">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Enter Your Email</label>
-                                        <input name="email" type="email" placeholder="john@youremail.com">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Type your messages</label>
-                                        <textarea name="message" placeholder="i would like to talking..."></textarea>
-                                    </div>
                                     <div class="form-group button">
-                                        <button type="submit" class="btn">Register Now</button>
+                                        <a href="{{route('member.register.form')}}" type="submit" class="btn">Register Now</a>
                                     </div>
                                 </form>
                                 <!--/ End Form -->
@@ -145,8 +137,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="enroll-right">
                                 <div class="section-title">
-                                    <h2>We Have More than 28,690+ Student With online Join!</h2>
-                                    <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis.</p>
+                                    <h2>We Have More Events, You Can Join First !!</h2>
                                 </div>
                             </div>
                             <!-- Skill Main -->
@@ -155,30 +146,30 @@
                                     <div class="col-lg-4 col-md-4 col-12 wow zoomIn" data-wow-delay="0.8s">
                                         <!-- Single Skill -->
                                         <div class="single-skill">
-                                            <div class="circle" data-value="0.7" data-size="130">
-                                                <strong>28K+</strong>
+                                            <div class="circle" data-value="0.{{$technical_event_count}}" data-size="130">
+                                                <strong>{{$technical_event_count}} +</strong>
                                             </div>
-                                            <h4>Students</h4>
+                                            <h4>Technical Event</h4>
                                         </div>
                                         <!--/ End Single Skill -->
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 wow zoomIn" data-wow-delay="1s">
                                         <!-- Single Skill -->
                                         <div class="single-skill">
-                                            <div class="circle" data-value="0.9" data-size="130">
-                                                <strong>50+</strong>
+                                            <div class="circle" data-value="0.{{$exhibition_event_count}}" data-size="130">
+                                                <strong>{{$exhibition_event_count}} +</strong>
                                             </div>
-                                            <h4>Courses</h4>
+                                            <h4>Exhibition Events</h4>
                                         </div>
                                         <!--/ End Single Skill -->
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 wow zoomIn" data-wow-delay="1.2s">
                                         <!-- Single Skill -->
                                         <div class="single-skill">
-                                            <div class="circle" data-value="0.8" data-size="130">
-                                                <strong>33+</strong>
+                                            <div class="circle" data-value="0.{{$field_event_count}}" data-size="130">
+                                                <strong>{{$field_event_count}}+</strong>
                                             </div>
-                                            <h4>Teachers</h4>
+                                            <h4>Field Events</h4>
                                         </div>
                                         <!--/ End Single Skill -->
                                     </div>
@@ -199,128 +190,26 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Popular <span>Courses</span> We Offer</h2>
-                        <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+                        <h2>Your <span>Photo</span> Gallery</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="course-slider">
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course1.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Commerce</span>Business Management</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>36 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>2 Years</span>
+                        @foreach($galleries as $item)
+
+
+                            <a class="single-course" href="{{asset($item->image)}}" data-lightbox="album" data-title="{{$item->title}}" data-alt="not">
+                                <div class="course-head overlay">
+                                    <img src="{{asset($item->image)}}" alt="#">
+
                                 </div>
-                                <span class="price">$350</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course2.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Science</span>Software Engineer</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>20 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>1 Years</span>
-                                </div>
-                                <span class="price">$590</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course3.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Science</span>Electrical Management</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>49 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>2 Years</span>
-                                </div>
-                                <span class="price">$140</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course1.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Commerce</span>Business Management</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>36 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>2 Years</span>
-                                </div>
-                                <span class="price">$350</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course2.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Science</span>Software Engineer</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>20 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>1 Years</span>
-                                </div>
-                                <span class="price">$590</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
-                        <!-- Single Course -->
-                        <div class="single-course">
-                            <div class="course-head overlay">
-                                <img src="{{asset('assets/frontend/images/course/course3.jpg')}}" alt="#">
-                                <a href="course-single.html" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                            <div class="single-content">
-                                <h4><a href="course-single.html"><span>Science</span>Electrical Management</a></h4>
-                                <p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit aenean </p>
-                            </div>
-                            <div class="course-meta">
-                                <div class="meta-left">
-                                    <span><i class="fa fa-users"></i>49 Seat</span>
-                                    <span><i class="fa fa-clock-o"></i>2 Years</span>
-                                </div>
-                                <span class="price">$140</span>
-                            </div>
-                        </div>
-                        <!--/ End Single Course -->
+
+                            </a>
+
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -335,10 +224,11 @@
                 <div class="col-lg-5 offset-lg-6 col-12">
                     <div class="cta-inner overlay">
                         <div class="text-content">
-                            <h2>We Focus On Brands, Products & Campaigns</h2>
-                            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore cum. Coluta nobis est eligendi optio cumque nihil impedit quo minusd quod maxime placeat facere possimus, omnis voluptas assumenda est. Our friendly support team is standing by to help you every step of the way.</p>
+                            <h2>We Focus On Your Events, News, Memberships.</h2>
+                            <p>If you want to join your event or get membership then, simply register and access your area.</p>
+
                             <div class="button">
-                                <a class="btn primary" href="contact.html" >Register Now</a>
+                                <a class="btn primary" href="{{route('member.register.form')}}" >Register Now</a>
                             </div>
                         </div>
                     </div>
@@ -354,80 +244,24 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Our Awesome <span>Teachers</span></h2>
-                        <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+                        <h2>Our Awesome <span>Members</span></h2>
                     </div>
                 </div>
             </div>
             <div class="row">
+                @foreach($members as $member)
                 <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Team -->
                     <div class="single-team">
-                        <img src="{{asset('assets/frontend/images/team/team1.jpg')}}" alt="#">
+                        <img src="{{asset($member->profile_image)}}" alt="#">
                         <div class="team-hover">
-                            <h4>Rohan Jonson<span>Associate Professor</span></h4>
-                            <p>cumque nihil impedit quo minusid quod maxime placeat facere possimus</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            </ul>
+                            <h4>{{$member->first_name.' '.$member->middle_name.' '.$member->last_name}}<span>{{$member->designation}}</span></h4>
+                            <p>{{$member->memberType->name}}</p>
+
                         </div>
                     </div>
-                    <!--/ End Single Team -->
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Team -->
-                    <div class="single-team active">
-                        <img src="{{asset('assets/frontend/images/team/team2.jpg')}}" alt="#">
-                        <div class="team-hover">
-                            <h4 class="name">Ian Harvey<span class="work">Web Programmer</span></h4>
-                            <p>cumque nihil impedit quo minusid quod maxime placeat facere possimus</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/ End Single Team -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Team -->
-                    <div class="single-team">
-                        <img src="{{asset('assets/frontend/images/team/team3.jpg')}}" alt="#">
-                        <div class="team-hover">
-                            <h4 class="name">Lusfat Roman<span class="work">Software Engineer</span></h4>
-                            <p>cumque nihil impedit quo minusid quod maxime placeat facere possimus</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/ End Single Team -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Team -->
-                    <div class="single-team">
-                        <img src="{{asset('assets/frontend/images/team/team4.jpg')}}" alt="#">
-                        <div class="team-hover">
-                            <h4 class="name">Nalpamb Bold<span class="work">JS Developer</span></h4>
-                            <p>cumque nihil impedit quo minusid quod maxime placeat facere possimus</p>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/ End Single Team -->
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -489,72 +323,37 @@
                 <div class="col-12">
                     <div class="section-title">
                         <h2>Upcoming <span>Events</span></h2>
-                        <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="event-slider">
-                        <!-- Single Event -->
+                       @foreach($events as $event)
                         <div class="single-event">
                             <div class="head overlay">
-                                <img src="{{asset('assets/frontend/images/events/event1.jpg')}}" alt="#">
-                                <a href="{{asset('assets/frontend/images/events/event1.jpg')}}" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
+                                <img src="{{asset($event->images[0]->image)}}" alt="#">
+                                <a href="{{asset($event->images[0]->image)}}" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
                             </div>
                             <div class="event-content">
                                 <div class="meta">
-                                    <span><i class="fa fa-calendar"></i>05 June 2018</span>
-                                    <span><i class="fa fa-clock-o"></i>12.00-5.00PM</span>
+                                    Start Date
+                                    <span><i class="fa fa-calendar"></i>{{date('d M Y',strtotime($event->start_date))}}</span>
+                                    <span><i class="fa fa-clock-o"></i>{{date('h:m A',strtotime($event->start_date))}}</span><br>
+                                    End Date
+                                    <span><i class="fa fa-calendar"></i>{{date('d M Y',strtotime($event->end_date))}}</span>
+                                    <span><i class="fa fa-clock-o"></i>{{date('h:m A',strtotime($event->end_date))}}</span>
                                 </div>
-                                <h4><a href="event-single.html">Freshers Day Reception 2018</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
+                                <h4><a href="{{route('event.details',$event->id)}}">{{$event->name}}</a></h4>
+                                <p>{{ \Illuminate\Support\Str::limit($event->description, 100, $end='...') }}</p>
                                 <div class="button">
-                                    <a href="event-single.html" class="btn">Join Event</a>
+                                    <a href="{{route('event.details',$event->id)}}" class="btn">Read More</a>
                                 </div>
                             </div>
                         </div>
-                        <!--/ End Single Event -->
-                        <!-- Single Event -->
-                        <div class="single-event">
-                            <div class="head overlay">
-                                <img src="{{asset('assets/frontend/images/events/event2.jpg')}}" alt="#">
-                                <a href="{{asset('assets/frontend/images/events/event2.jpg')}}" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
-                            </div>
-                            <div class="event-content">
-                                <div class="meta">
-                                    <span><i class="fa fa-calendar"></i>03 July 2018</span>
-                                    <span><i class="fa fa-clock-o"></i>03.20-5.20PM</span>
-                                </div>
-                                <h4><a href="event-single.html">Best Student Award 2018</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
-                                <div class="button">
-                                    <a href="event-single.html" class="btn">Join Event</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/ End Single Event -->
-                        <!-- Single Event -->
-                        <div class="single-event">
-                            <div class="head overlay">
-                                <img src="{{asset('assets/frontend/images/events/event3.jpg')}}" alt="#">
-                                <a href="{{asset('assets/frontend/images/events/event3.jpg')}}" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
-                            </div>
-                            <div class="event-content">
-                                <div class="meta">
-                                    <span><i class="fa fa-calendar"></i>15 Dec 2018</span>
-                                    <span><i class="fa fa-clock-o"></i>12.30-5.30PM</span>
-                                </div>
-                                <div class="title">
-                                    <h4><a href="event-single.html">Student Workshop</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
-                                </div>
-                                <div class="button">
-                                    <a href="event-single.html" class="btn">Join Event</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/ End Single Event -->
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
@@ -569,36 +368,36 @@
                 <div class="col-lg-3 col-md-6 col-6">
                     <!-- Single Fact -->
                     <div class="single-fact">
-                        <i class="fa fa-institution"></i>
-                        <div class="number"><span class="counter">80</span>k+</div>
-                        <p>Active Cources</p>
+                        <i class="fa fa-user-o"></i>
+                        <div class="number"><span class="counter">{{$foundry_member_count}}</span></div>
+                        <p>Foundry Members</p>
                     </div>
                     <!--/ End Single Fact -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-6">
                     <!-- Single Fact -->
                     <div class="single-fact">
-                        <i class="fa fa-graduation-cap"></i>
-                        <div class="number"><span class="counter">33</span>k+</div>
-                        <p>Active Students</p>
+                        <i class="fa fa-user-o"></i>
+                        <div class="number"><span class="counter">{{$current_member_count}}</span></div>
+                        <p>Current Members</p>
                     </div>
                     <!--/ End Single Fact -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-6">
                     <!-- Single Fact -->
                     <div class="single-fact">
-                        <i class="fa fa-video-camera"></i>
-                        <div class="number"><span class="counter">278</span>+</div>
-                        <p>Video Cources</p>
+                        <i class="fa fa-user-o"></i>
+                        <div class="number"><span class="counter">{{$student_member_count}}</span></div>
+                        <p>Student Members</p>
                     </div>
                     <!--/ End Single Fact -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-6">
                     <!-- Single Fact -->
                     <div class="single-fact">
-                        <i class="fa fa-trophy"></i>
-                        <div class="number"><span class="counter">308</span>+</div>
-                        <p>Awards Won</p>
+                        <i class="fa fa-user-o"></i>
+                        <div class="number"><span class="counter">{{$new_member_count}}</span></div>
+                        <p>New Members</p>
                     </div>
                     <!--/ End Single Fact -->
                 </div>
@@ -607,14 +406,13 @@
     </div>
     <!--/ End Fun Facts -->
 
-    <!-- Blogs -->
+    <!-- News -->
     <section class="blog section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
                         <h2>Latest <span>News</span></h2>
-                        <p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
                     </div>
                 </div>
             </div>
@@ -631,13 +429,13 @@
                                 <img src="{{asset($item->image_or_file)}}" alt="#">
                             </div>
                             <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-single.html">{{$item->title}}</a></h4>
+                                <h4 class="blog-title"><a href="{{route('news.details',$item->id)}}">{{$item->title}}</a></h4>
                                 <div class="blog-info">
-                                    <a href="#"><i class="fa fa-user"></i>By: Admin</a>
+                                    <a href="#"><i class="fa fa-user"></i>By: {{$item->userName->name}}</a>
                                 </div>
-                                <p>{{$item->description}}</p>
+                                <p>{{ \Illuminate\Support\Str::limit($item->description, 100, $end='...') }}</p>
                                 <div class="button">
-                                    <a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
+                                    <a href="{{route('news.details',$item->id)}}" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -650,6 +448,9 @@
             </div>
         </div>
     </section>
-    <!--/ End Blogs -->
+    <!--/ End News -->
 
+@endsection
+@section('additionalJS')
+    <script src="{{asset('assets/frontend/lightbox2/js/lightbox.min.js')}}"></script>
 @endsection

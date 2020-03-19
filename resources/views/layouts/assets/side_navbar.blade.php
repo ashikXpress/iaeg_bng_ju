@@ -92,6 +92,21 @@
                         <li><a href="{{route('all.event')}}" class="{{ Route::currentRouteName() === 'all.event' ? 'active' : '' }}"><i class="fa fa-universal-access"></i>Manage Event</a></li>
                     </ul>
                 </li>
+                @php
+                    $subMenu = ['event.technical.join.unapproved','event.exhibition.join.unapproved','event.field.join.unapproved'];
+                @endphp
+
+                <li class="{{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
+
+                    <a href="javascript:void(0);" class="iq-waves-effect"><i class="fa fa-user-plus"></i><span>Event Join Manage</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                    <ul class="iq-submenu {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
+
+                        <li><a href="{{route('event.technical.join.unapproved')}}" class="{{ Route::currentRouteName() === 'event.technical.join.unapproved' ? 'active' : '' }}"><i class="fa fa-universal-access"></i>Technical Unapproved </a></li>
+                        <li><a href="{{route('event.exhibition.join.unapproved')}}" class="{{ Route::currentRouteName() === 'event.exhibition.join.unapproved' ? 'active' : '' }}"><i class="fa fa-universal-access"></i>Exhibition Unapproved </a></li>
+                        <li><a href="{{route('event.field.join.unapproved')}}" class="{{ Route::currentRouteName() === 'event.field.join.unapproved' ? 'active' : '' }}"><i class="fa fa-universal-access"></i>Field Unapproved  <h4 class="ml-5 badge badge-danger"> 10</h4></a></li>
+                    </ul>
+                </li>
+
 
                 @php
                     $subMenu = ['unapproved.member.list','approved.member.list'];

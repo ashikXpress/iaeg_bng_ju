@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
+    <div id="fb-root"></div>
     <!-- Start Breadcrumbs -->
     <section class="breadcrumbs overlay">
         <div class="container">
@@ -52,6 +53,8 @@
                                     <a href="{{route('member.dashboard')}}" class="btn">Apply for this event</a>
                                 </div>
                             </div>
+                            <div class="fb-comments" data-href="{{ url()->current() }}" data-numposts="10"></div>
+
                         </div>
                     </div>
                 </div>
@@ -74,4 +77,7 @@
         </div>
     </section>
     <!--/ End Events -->
+@endsection
+@section('additionalJS')
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
 @endsection
